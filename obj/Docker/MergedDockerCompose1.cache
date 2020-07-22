@@ -1,0 +1,42 @@
+networks:
+  my_user_network:
+    external: true
+services:
+  aggregatormicroservice:
+    build:
+      context: C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice
+      dockerfile: Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: AggregatorMicroservice
+      target: base
+    container_name: AggregatorMicroservice
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: aggregator-microservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "bin/Debug/netcoreapp3.1/AggregatorMicroservice.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      my_user_network: {}
+    ports:
+    - published: 53318
+      target: 80
+    - target: 80
+    - published: 53319
+      target: 443
+    tty: true
+    volumes:
+    - C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice:/app:rw
+    - C:\Users\bhavanarani\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\bhavanarani\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\bhavanarani\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\bhavanarani\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice:/src:rw
+version: '3.4'

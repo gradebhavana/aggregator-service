@@ -1,0 +1,17 @@
+version: "3.4"
+
+networks:
+  my_user_network:
+    external: true
+
+services:
+  aggregatormicroservice:
+    image: aggregator-microservice:DEV
+    ports:
+      - '53318:80'
+      - '53319:443'
+    build:
+        context: .
+        dockerfile: Dockerfile
+    networks:
+      - my_user_network

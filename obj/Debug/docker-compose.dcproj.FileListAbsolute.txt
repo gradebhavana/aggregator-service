@@ -1,0 +1,9 @@
+C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice\bin\Debug\appsettings.Development.json
+C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice\bin\Debug\appsettings.json
+C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice\bin\Debug\Properties\launchSettings.json
+C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice\bin\Debug\AggregatorMicroservice.exe
+C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice\bin\Debug\AggregatorMicroservice.dll
+C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice\bin\Debug\Newtonsoft.Json.dll
+C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice\bin\Debug\AggregatorMicroservice.pdb
+C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice\obj\Debug\docker-compose.dcprojAssemblyReference.cache
+C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice\obj\Debug\docker-compose.dcproj.CopyComplete

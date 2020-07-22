@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  aggregatormicroservice:
+    image: aggregator-microservice:dev
+    container_name: AggregatorMicroservice
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "AggregatorMicroservice"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - NUGET_FALLBACK_PACKAGES=
+    volumes:
+      - C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice:/app
+      - C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice:/src
+      - C:\Users\bhavanarani\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\bhavanarani\.nuget\packages\:/root/.nuget/packages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"bin/Debug/netcoreapp3.1/AggregatorMicroservice.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true

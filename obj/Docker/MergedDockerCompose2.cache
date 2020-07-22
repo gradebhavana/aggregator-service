@@ -1,0 +1,20 @@
+networks:
+  my_user_network:
+    external: true
+services:
+  aggregatormicroservice:
+    build:
+      context: C:\Users\bhavanarani\Desktop\bench\july\AggregatorMicroservice
+      dockerfile: Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: aggregator-microservice:DEV
+    networks:
+      my_user_network: {}
+    ports:
+    - published: 53301
+      target: 80
+    - target: 80
+    - published: 53319
+      target: 443
+version: '3.4'
